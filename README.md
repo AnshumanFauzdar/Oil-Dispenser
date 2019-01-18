@@ -11,17 +11,9 @@ This project is desired to fill bottles or containers of desired input weight by
   - 10k Ω potentiometer
   - 1N4148 diode (Back EMF Protection)
   - 220Ω resistor
+  - 1k Ω resistor
   
-- For short Circuit Protection:
-  - 12v Double power relay
-  - PCB mount screw terminals
-  - Prototype PCB board
-  - LM358N IC 
-  - BC547 transistor
-  - 1N4007 1A 1000v diode
-  - 1 kΩ resistor
-  - 20 kΩ resistor
-  - 10 kΩ trimmer
-  - 5w 0.1 Ω cement resistor
+  
+
  
 
