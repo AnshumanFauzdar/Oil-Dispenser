@@ -16,26 +16,29 @@ int button3 = 5;
 int button4 = 4;
 int button5 = 3;
 int button6 = 2;
+int button7 = 1;
 
-int potvalue2 = 0;
+double potvalue2 = 0;
 int buttonvalue = 1;
 int buttonvalue2 = 1;
 int buttonvalue3 = 1;
 int buttonvalue4 = 1;
 int buttonvalue5 = 1;
 int buttonvalue6 = 1;
+int buttonvalue7 = 1;
 double final_weight = 0;
 
 
 char weight[7] = "";
 double maxvalue = 1;
-int maxvalue2 = 1;
+double maxvalue2 = 1;
 char valid[50] = "false";
 char valid2[50] = "false";
 char valid3[50] = "false";
 char valid4[50] = "false";
 char valid5[50] = "false";
 char valid6[50] = "false";
+char valid7[50] = "false";
 
 void setup()
 {  
@@ -127,10 +130,10 @@ if (!strcmp(valid6, "true"))
   {
     digitalWrite(relay, 0);
     strcpy(valid,"true");
-    maxvalue = 000.500;
+    maxvalue = 000.465;
     lcd.setCursor(1,0);
     lcd.print("WT INPUT:");
-    lcd.print(maxvalue);
+    lcd.print("500 gm");
     if(!strcmp(valid,"true"))
    {
     weight[0] = myArray[1];
@@ -142,7 +145,6 @@ if (!strcmp(valid6, "true"))
     weight[6] = myArray[7];
     
     final_weight = strtod(weight,NULL);
-    //final_weight = atof(weight);
     
    }
  
@@ -162,7 +164,7 @@ if (!strcmp(valid6, "true"))
     maxvalue = 001.000;
     lcd.setCursor(1,0);
     lcd.print("WT INPUT:");
-    lcd.print(maxvalue);
+    lcd.print("1 Kg");
     if(!strcmp(valid2,"true"))
     {
       weight[0] = myArray[1];
@@ -193,7 +195,7 @@ if (!strcmp(valid6, "true"))
     maxvalue = 002.000;
     lcd.setCursor(1,0);
     lcd.print("WT INPUT:");
-    lcd.print(maxvalue);
+    lcd.print("2 Kg");
     if(!strcmp(valid3,"true"))
    {
     weight[0] = myArray[1];
@@ -220,10 +222,10 @@ else if(buttonvalue4 == 1)
   {
     digitalWrite(relay, 0);
     strcpy(valid4,"true");
-    maxvalue = 003.000;
+    maxvalue = 005.000;
     lcd.setCursor(1,0);
     lcd.print("WT INPUT:");
-    lcd.print(maxvalue);
+    lcd.print("5 Kg");
     if(!strcmp(valid4,"true"))
    {
     weight[0] = myArray[1];
@@ -250,11 +252,41 @@ else if(buttonvalue5 == 1)
   {
     digitalWrite(relay, 0);
     strcpy(valid5,"true");
-    maxvalue = 004.000;
+    maxvalue = 010.000;
     lcd.setCursor(1,0);
     lcd.print("WT INPUT:");
-    lcd.print(maxvalue);
+    lcd.print("10 Kg");
     if(!strcmp(valid5,"true"))
+   {
+    weight[0] = myArray[1];
+    weight[1] = myArray[2];
+    weight[2] = myArray[3];
+    weight[3] = myArray[4];
+    weight[4] = myArray[5];
+    weight[5] = myArray[6];
+    weight[6] = myArray[7];
+    
+    final_weight = strtod(weight,NULL);
+    
+      }
+      if(final_weight>maxvalue)
+      {
+     digitalWrite(relay, 1); 
+     strcpy(valid5,"false");
+    }
+    }
+
+// 6th Button
+    
+else if(buttonvalue6 == 1)
+  {
+    digitalWrite(relay, 0);
+    strcpy(valid5,"true");
+    maxvalue = 015.000;
+    lcd.setCursor(1,0);
+    lcd.print("WT INPUT:");
+    lcd.print("15 Kg");
+    if(!strcmp(valid6,"true"))
    {
     weight[0] = myArray[1];
     weight[1] = myArray[2];
@@ -276,15 +308,16 @@ else if(buttonvalue5 == 1)
 
 // Manual Button-Set value by Potentiometer 
  
-  else if(buttonvalue6 == 1)
+  else if(buttonvalue7 == 1)
     {
     digitalWrite(relay, 0);
-    strcpy(valid6,"true");
+    strcpy(valid7,"true");
     
     
-    if(!strcmp(valid6,"true"))
+    if(!strcmp(valid7,"true"))
    {
-    potvalue2 = analogRead(pot2);
+    potvalue2 = analogRead(pot2)/10;
+    
     weight[0] = myArray[1];
     weight[1] = myArray[2];
     weight[2] = myArray[3];
@@ -307,4 +340,3 @@ else if(buttonvalue5 == 1)
     }
     }    
   }  
-
