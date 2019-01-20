@@ -130,10 +130,10 @@ if (!strcmp(valid6, "true"))
   {
     digitalWrite(relay, 0);
     strcpy(valid,"true");
-    maxvalue = 000.465;
+    maxvalue = 000.390;
     lcd.setCursor(1,0);
-    lcd.print("WT INPUT:");
-    lcd.print("500 gm");
+    lcd.print("Vol INPUT:");
+    lcd.print("500 ml");
     if(!strcmp(valid,"true"))
    {
     weight[0] = myArray[1];
@@ -161,10 +161,10 @@ if (!strcmp(valid6, "true"))
   {
     digitalWrite(relay, 0);
     strcpy(valid2,"true");
-    maxvalue = 001.000;
+    maxvalue = 00.910;
     lcd.setCursor(1,0);
-    lcd.print("WT INPUT:");
-    lcd.print("1 Kg");
+    lcd.print("Vol INPUT:");
+    lcd.print("1 L");
     if(!strcmp(valid2,"true"))
     {
       weight[0] = myArray[1];
@@ -192,10 +192,10 @@ if (!strcmp(valid6, "true"))
   {
     digitalWrite(relay, 0);
     strcpy(valid3,"true");
-    maxvalue = 002.000;
+    maxvalue = 001.800;
     lcd.setCursor(1,0);
-    lcd.print("WT INPUT:");
-    lcd.print("2 Kg");
+    lcd.print("Vol INPUT:");
+    lcd.print("2 L");
     if(!strcmp(valid3,"true"))
    {
     weight[0] = myArray[1];
@@ -222,10 +222,10 @@ else if(buttonvalue4 == 1)
   {
     digitalWrite(relay, 0);
     strcpy(valid4,"true");
-    maxvalue = 005.000;
+    maxvalue = 004.500;
     lcd.setCursor(1,0);
     lcd.print("WT INPUT:");
-    lcd.print("5 Kg");
+    lcd.print("5 L");
     if(!strcmp(valid4,"true"))
    {
     weight[0] = myArray[1];
@@ -252,10 +252,10 @@ else if(buttonvalue5 == 1)
   {
     digitalWrite(relay, 0);
     strcpy(valid5,"true");
-    maxvalue = 010.000;
+    maxvalue = 009.000;
     lcd.setCursor(1,0);
     lcd.print("WT INPUT:");
-    lcd.print("10 Kg");
+    lcd.print("10 L");
     if(!strcmp(valid5,"true"))
    {
     weight[0] = myArray[1];
@@ -282,10 +282,10 @@ else if(buttonvalue6 == 1)
   {
     digitalWrite(relay, 0);
     strcpy(valid5,"true");
-    maxvalue = 015.000;
+    maxvalue = 013.600;
     lcd.setCursor(1,0);
     lcd.print("WT INPUT:");
-    lcd.print("15 Kg");
+    lcd.print("15 L");
     if(!strcmp(valid6,"true"))
    {
     weight[0] = myArray[1];
@@ -331,6 +331,7 @@ else if(buttonvalue6 == 1)
    lcd.setCursor(1,0);
     lcd.print("WT INPUT:");
     lcd.print(maxvalue2);
+    lcd.print("L");
    }
  
   if(final_weight>maxvalue2)
