@@ -12,7 +12,7 @@ This project is desired to fill bottles or containers of desired input weight by
   - 1N4148 diode (Back EMF Protection)
   - 220Ω resistor
   - 1k Ω resistor
-  
+  - Wiring
   
 
  
