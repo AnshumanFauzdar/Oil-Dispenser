@@ -10,13 +10,13 @@ LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
 int relay = 9;
 int pot2 = A2;
-int button = 7;
-int button2 = 6;
-int button3 = 5;
-int button4 = 4;
-int button5 = 3;
-int button6 = 2;
-int button7 = 1;
+int button = 8;
+int button2 = 7;
+int button3 = 6;
+int button4 = 5;
+int button5 = 4;
+int button6 = 3;
+int button7 = 2;
 
 double potvalue2 = 0;
 int buttonvalue = 1;
@@ -55,8 +55,8 @@ void loop()
 {
  
   
-  Serial.println(analogRead(pot2));
-  delay(100);
+  //Serial.println(analogRead(pot2));
+  //delay(100);
   
   {
   while (mySerial.available() > 11)
@@ -98,7 +98,7 @@ void loop()
   buttonvalue4 = digitalRead(button4);
   buttonvalue5 = digitalRead(button5);
   buttonvalue6 = digitalRead(button6);
-  
+  buttonvalue7 = digitalRead(button7);
   if(!strcmp(valid,"true"))
 {
   buttonvalue=1;
@@ -123,7 +123,11 @@ if(!strcmp(valid5, "true"))
 if (!strcmp(valid6, "true"))
 {
   buttonvalue6=1;
-  }     
+  } 
+  if (!strcmp(valid7, "true"))
+{
+  buttonvalue7=1;
+  }         
 //FIRST BUTTON
     
   if(buttonvalue == 1)
@@ -276,7 +280,7 @@ else if(buttonvalue5 == 1)
     }
     }
 
-// 6th Button
+// 6th Button - 15Kg
     
 else if(buttonvalue6 == 1)
   {
@@ -302,10 +306,10 @@ else if(buttonvalue6 == 1)
       if(final_weight>maxvalue)
       {
      digitalWrite(relay, 1); 
-     strcpy(valid5,"false");
+     strcpy(valid6,"false");
     }
     }
-
+/*
 // Manual Button-Set value by Potentiometer 
  
   else if(buttonvalue7 == 1)
@@ -337,7 +341,8 @@ else if(buttonvalue6 == 1)
   if(final_weight>maxvalue2)
     {
      digitalWrite(relay, 1); 
-     strcpy(valid6,"false");
+     strcpy(valid7,"false");
     }
-    }    
+    }
+    */    
   }  
