@@ -1,12 +1,16 @@
 #include <SoftwareSerial.h>
+#include <Wire.h>
+#include <hd44780.h>                       // main hd44780 header
+#include <hd44780ioClass/hd44780_I2Cexp.h> // i2c expander i/o class header
+#include<string.h>
+hd44780_I2Cexp lcd; // declare lcd object: auto locate & auto config expander chip
+
+const int LCD_COLS = 16;
+const int LCD_ROWS = 2;
 
 SoftwareSerial mySerial(10, 11); 
 
 char myArray[12] = {"012345678AB"};
-#include<string.h>
-#include <LiquidCrystal.h>
-const int rs = 31, en = 30, d4 = 28, d5 = 26, d6 = 24, d7 = 22;
-LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
 int relay = 9;
 int pot2 = A2;
@@ -48,7 +52,26 @@ pinMode(button2, INPUT);
 Serial.begin(9600);
 mySerial.begin(9600);
 digitalWrite(relay, 1);
-lcd.begin(16, 2);  
+
+  int status;
+
+ 
+  status = lcd.begin(LCD_COLS, LCD_ROWS);
+  if(status) // non zero status means it was unsuccesful
+  {
+    status = -status; // convert negative status value to positive number
+
+    // begin() failed so blink error code using the onboard LED if possible
+    hd44780::fatalError(status); // does not return
+    
+   
+}
+
+lcd.print("Welcome Vikas!");
+    lcd.setCursor(0,1);
+    lcd.print("Have a nice day");
+    delay(5000);
+    lcd.clear();
 }
 
 void loop()
@@ -57,7 +80,7 @@ void loop()
   
   //Serial.println(analogRead(pot2));
   //delay(100);
-  
+    
   {
   while (mySerial.available() > 11)
   {
@@ -127,15 +150,17 @@ if (!strcmp(valid6, "true"))
   if (!strcmp(valid7, "true"))
 {
   buttonvalue7=1;
-  }         
+  }    
+       
 //FIRST BUTTON
     
   if(buttonvalue == 1)
   {
+    lcd.clear();
     digitalWrite(relay, 0);
     strcpy(valid,"true");
     maxvalue = 000.390;
-    lcd.setCursor(1,0);
+    lcd.setCursor(0,0);
     lcd.print("Vol INPUT:");
     lcd.print("500 ml");
     if(!strcmp(valid,"true"))
@@ -163,10 +188,11 @@ if (!strcmp(valid6, "true"))
     
   else if(buttonvalue2 == 1)
   {
+    lcd.clear();
     digitalWrite(relay, 0);
     strcpy(valid2,"true");
     maxvalue = 00.910;
-    lcd.setCursor(1,0);
+    lcd.setCursor(0,0);
     lcd.print("Vol INPUT:");
     lcd.print("1 L");
     if(!strcmp(valid2,"true"))
@@ -194,10 +220,11 @@ if (!strcmp(valid6, "true"))
        
   else if(buttonvalue3 == 1)
   {
+    lcd.clear();
     digitalWrite(relay, 0);
     strcpy(valid3,"true");
     maxvalue = 001.800;
-    lcd.setCursor(1,0);
+    lcd.setCursor(0,0);
     lcd.print("Vol INPUT:");
     lcd.print("2 L");
     if(!strcmp(valid3,"true"))
@@ -224,10 +251,11 @@ if (!strcmp(valid6, "true"))
 
 else if(buttonvalue4 == 1)
   {
+    lcd.clear();
     digitalWrite(relay, 0);
     strcpy(valid4,"true");
     maxvalue = 004.500;
-    lcd.setCursor(1,0);
+    lcd.setCursor(0,0);
     lcd.print("WT INPUT:");
     lcd.print("5 L");
     if(!strcmp(valid4,"true"))
@@ -254,10 +282,11 @@ else if(buttonvalue4 == 1)
     
 else if(buttonvalue5 == 1)
   {
+    lcd.clear();
     digitalWrite(relay, 0);
     strcpy(valid5,"true");
     maxvalue = 009.000;
-    lcd.setCursor(1,0);
+    lcd.setCursor(0,0);
     lcd.print("WT INPUT:");
     lcd.print("10 L");
     if(!strcmp(valid5,"true"))
@@ -284,10 +313,11 @@ else if(buttonvalue5 == 1)
     
 else if(buttonvalue6 == 1)
   {
+    lcd.clear();
     digitalWrite(relay, 0);
-    strcpy(valid5,"true");
+    strcpy(valid6,"true");
     maxvalue = 013.600;
-    lcd.setCursor(1,0);
+    lcd.setCursor(0,0);
     lcd.print("WT INPUT:");
     lcd.print("15 L");
     if(!strcmp(valid6,"true"))
