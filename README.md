@@ -1,6 +1,6 @@
 ## Manual Oil Dispenser
 
-This project is desired to fill bottles or containers of desired input weight by reading value of weighing scale and utilising the signal produced as input in our microcontroller(Arduino Uno)
+This project is desired to fill bottles or containers of desired input weight by reading value of weighing scale and utilising the signal produced as input in our microcontroller (Arduino Mega)
 
 # Parts Required:
 - For Manual Input:
