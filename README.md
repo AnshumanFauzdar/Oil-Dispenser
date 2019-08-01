@@ -44,4 +44,25 @@ Wasted 5 days with faulty RS232 to TTL converter! Ordered a new converter which 
   
 Weight from weighing machine was in format like + 000.000 KG so got rid of the gaps and +, KG which is not required in comparing to input weight!
 
-#
+# Enclosure:
+
+I made a big mistake while choosing this one! I got a small air-tight container but while doing wiring I stumbled upon this problem as wiring stuff was a hassle and soldering was more hassle!!
+
+Always choose a bigger box or enclosures when working with bigger projects, you can change from bigger to smaller dimensions but cannot do the reverse of it!!
+
+Cutting details was followed by this and got the enclosure cut by a local manufacturer
+
+![](https://raw.githubusercontent.com/AnshumanFauzdar/Oil-Dispenser/master/Images/BOX%20Coutout.jpg)
+
+# Wiring
+
+Wiring was a bit mess when I was working in intial stage as I donot used any I2C interface with LCD and there were too many wires because of that and in version 2.0 I changed from this by using I2C interface and connected some more connectors and stuff to make it more tidy and aligned the components in one direction
+
+Like this:
+![](https://raw.githubusercontent.com/AnshumanFauzdar/Oil-Dispenser/master/Images/5.jpg)
+
+![](https://github.com/AnshumanFauzdar/Oil-Dispenser/raw/master/Images/6.jpg)
+
+![](https://github.com/AnshumanFauzdar/Oil-Dispenser/raw/master/Images/7.jpg)
+
+
