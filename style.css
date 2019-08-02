@@ -1,0 +1,71 @@
+body {
+  font-family: itc-benguiat, serif;
+  background: black;
+}
+
+h1 {
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 1;
+  position: relative;
+  text-shadow: -1px -1px 0 red, 1px -1px 0 red, -1px 1px 0 red, 1px 1px 0 red, 0px 0px 50px rgba(255, 0, 0, 0.5);
+  width: 100%;
+  background: black;
+}
+@media screen and (max-width: 1175px) {
+  h1 {
+    transition: 300ms all;
+    font-size: 4rem;
+  }
+}
+h1:after {
+  background: black;
+  font-size: 7rem;
+  font-weight: 700;
+  content: 'Anshuman Fauzdar';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: .2s all;
+  text-shadow: none;
+  color: black;
+  opacity: 1;
+  background-color: red;
+  background-image: linear-gradient(90deg, black 0%, red 47%, black 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: Gradient 10s ease-in-out infinite;
+  background-size: 1200% 1200%;
+  width: 100%;
+}
+@media screen and (max-width: 1175px) {
+  h1:after {
+    transition: 300ms all;
+    font-size: 4rem;
+  }
+}
+@media screen and (max-width: 706px) {
+  h1:after {
+    transition: 300ms all;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 25% 75%;
+    opacity: .25;
+  }
+  50% {
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    opacity: 1;
+  }
+  100% {
+    background-position: 25% 75%;
+    opacity: .25;
+  }
+}
